@@ -7,18 +7,18 @@ import java.io.IOException;
 import java.util.Random;
 
 public class Salter{
-    //rnd generator intialized
+    //rnd generator initialized
     Random rnd = new Random();
 
     public void Salt(File csvFile, int saltValue) throws IOException{
         File tmp = new File(csvFile.getParent(), "temp.csv");   //creates a temp file to be able to change the csv
 
         try (
-            BufferedReader reader = new BufferedReader(new FileReader(csvFile)); //reader  to read the orignial csvFile
+            BufferedReader reader = new BufferedReader(new FileReader(csvFile)); //reader  to read the original csvFile
             BufferedWriter writer = new BufferedWriter(new FileWriter(tmp)) //creates a writer to write to the temp file
         ){
             String input;
-
+            reader.readLine();
             //sets inputs equal to the line  if it is not null this will continue the while
             while ((input = reader.readLine()) != null){ 
                 //creates split array with each value
@@ -39,5 +39,11 @@ public class Salter{
             System.out.println("The csv File has been successfully salted!");
         }
     
+    }
+
+    public static void main(String[] args) throws IOException {
+        File csvFile = new File("data.csv");
+        Salter salter = new Salter();
+        salter.Salt(csvFile, 20);
     }
 }
