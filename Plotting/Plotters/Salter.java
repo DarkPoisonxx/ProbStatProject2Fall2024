@@ -1,3 +1,5 @@
+package Plotters;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -41,9 +43,5 @@ public class Salter{
     
     }
 
-    public static void main(String[] args) throws IOException {
-        File csvFile = new File("data.csv");
-        Salter salter = new Salter();
-        salter.Salt(csvFile, 20);
-    }
+    
 }
