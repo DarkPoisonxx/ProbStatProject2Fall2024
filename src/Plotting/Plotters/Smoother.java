@@ -12,12 +12,11 @@ public class Smoother {
             BufferedWriter writer = new BufferedWriter(new FileWriter(tmp)) // Writer for the temp file
         ) {
             String input;
-            String header = reader.readLine(); // Read and write the header
-            writer.write(header);
+            writer.write("X,Y");
             writer.newLine();
 
             // Get the number of rows in the CSV (to know the size of the arrays)
-            int rowCount = 0;
+            int rowCount = -1;
             while ((input = reader.readLine()) != null) {
                 rowCount++;
             }
@@ -40,19 +39,24 @@ public class Smoother {
                     index++;
                 }
 
-                // Perform iterative smoothing directly in this method
-                boolean converged;
-                do {
-                    converged = true;
-                    // Iterate over the array (except the first and last elements)
-                    for (int i = 1; i < yValues.length - 1; i++) {
-                        double average = (yValues[i - 1] + yValues[i + 1]) / 2;
-                        if (Math.abs(yValues[i] - average) > 0.01) { // Convergence threshold
-                            yValues[i] = average; // Update the value
-                            converged = false; // Not yet converged
-                        }
+                // Perform smoothing, including the first and last elements
+                for (int i = 1; i < yValues.length - 1; i++) {
+                    double sum = 0;
+                    int rowsUsed = 0;
+                    // Sliding window: go from half the row count before to half the row count after
+                    for (int j = Math.max(0, i - rowCount / 2); j <= Math.min(yValues.length - 1, i + rowCount / 2); j++) {
+                        sum += yValues[j];  // Sum the values within the window
+                        rowsUsed++;
                     }
-                } while (!converged); // Repeat until all values converge
+                    // Assign the average of the windowed values to the current yValue
+                    yValues[i] = sum / rowsUsed - 1;
+                }
+
+                // Smooth the first element by averaging with the next element
+                yValues[0] = (yValues[0] + yValues[1]) / 2;
+
+                // Smooth the last element by averaging with the previous element
+                yValues[rowCount - 1] = (yValues[rowCount - 2] + yValues[rowCount - 1]) / 2;
 
                 // Write the smoothed values back to the new file
                 DecimalFormat df = new DecimalFormat("#.00");
