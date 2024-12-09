@@ -1,7 +1,8 @@
-package Testers;
+package Plotting.PlottingCSV.Testers;
 import java.io.IOException;
 
-import Plotters.Plotter;
+import Plotting.PlottingCSV.Plotters.Plotter;
+
 public class TestPlotter {
     public static void main(String[] args) {
         Plotter plotter = new Plotter();

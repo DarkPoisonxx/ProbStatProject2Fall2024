@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "src"
+    ],
+    "java.project.referencedLibraries": [
+        "c:\\Users\\gcama\\Desktop\\Fall Term 2024\\Probability & Applied Statistics\\ProbStatProject2Fall2024\\lib\\jfreechart-1.5.5.jar",
+        "c:\\Users\\gcama\\Desktop\\Fall Term 2024\\Probability & Applied Statistics\\ProbStatProject2Fall2024\\lib\\commons-math3-3.6.1.jar"
+    ]
+}

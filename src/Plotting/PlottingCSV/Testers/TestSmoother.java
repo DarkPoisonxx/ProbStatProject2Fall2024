@@ -1,9 +1,9 @@
-package Testers;
+package Plotting.PlottingCSV.Testers;
 
 import java.io.File;
 import java.io.IOException;
 
-import Plotters.Smoother;
+import Plotting.PlottingCSV.Plotters.Smoother;
 
 public class TestSmoother {
     public static void main(String[] args) throws IOException {

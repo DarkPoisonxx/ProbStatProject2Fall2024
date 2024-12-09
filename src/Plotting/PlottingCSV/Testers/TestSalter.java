@@ -1,8 +1,9 @@
-package Testers;
+package Plotting.PlottingCSV.Testers;
 import java.io.File;
 import java.io.IOException;
 
-import Plotters.Salter;
+import Plotting.PlottingCSV.Plotters.Salter;
+
 
 public class TestSalter {
     public static void main(String[] args) throws IOException {

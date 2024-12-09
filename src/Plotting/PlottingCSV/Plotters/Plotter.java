@@ -1,4 +1,4 @@
-package Plotters;
+package Plotting.PlottingCSV.Plotters;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
