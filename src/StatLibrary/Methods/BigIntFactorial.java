@@ -2,18 +2,26 @@ package StatLibrary.Methods;
 
 import java.math.BigInteger;
 
-public class BigIntFactorial{
-    public BigIntFactorial(){
-        
-    }
+public class BigIntFactorial {
+    
+    // Default constructor
+    public BigIntFactorial() {}
 
-    public BigInteger factorial(int input){
+    
+     //Calculates the factorial of a given number using BigInteger.
+     //parameter input The number for which the factorial is calculated.
+     // return The factorial as a BigInteger.
+    public BigInteger factorial(int input) {
         BigInteger product = BigInteger.valueOf(input);
-        if(product == BigInteger.valueOf(0)){
-            return BigInteger.valueOf(0);
+        
+        // Return 1 for factorial of 0
+        if (product.equals(BigInteger.ZERO)) {
+            return BigInteger.ONE;
         }
-        for (int i = input; i > 0; i--){
-            product = product.multiply(BigInteger.valueOf(i)) ;
+
+        // Multiply numbers from input down to 1
+        for (int i = input - 1; i > 0; i--) {
+            product = product.multiply(BigInteger.valueOf(i));
         }
         return product;
     }
