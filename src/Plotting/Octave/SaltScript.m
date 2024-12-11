@@ -1,5 +1,5 @@
 % Add random salt to the y-values
-saltValue = 0.5;  % Maximum value for salt
+saltValue = .3;  % Maximum value for salt
 for i = 1:length(x)
     saltSine = (rand() - 0.5) * 2 * saltValue;  % Random salt for sine
     saltCosine = (rand() - 0.5) * 2 * saltValue;  % Random salt for cosine

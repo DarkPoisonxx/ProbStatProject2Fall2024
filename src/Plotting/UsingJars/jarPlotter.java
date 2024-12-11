@@ -72,6 +72,7 @@ public class jarPlotter {
         return dataset; // Return the dataset for salting
     }
 
+    
     // Method to apply salt to the sine and cosine data
     public void salt(int saltValue) {
         // Create datasets for the salted sine and cosine waves

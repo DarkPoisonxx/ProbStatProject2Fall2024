@@ -8,7 +8,7 @@ yCosine = cos(x);
 
 % Plot the sine and cosine waves
 figure;
-plot(x, ySine, 'b', 'DisplayName', 'Sine Wave');
+plot(x, ySine, 'b', 'DisplayName', 'Sine');
 hold on;
 plot(x, yCosine, 'r', 'DisplayName', 'Cosine Wave');
 legend;
